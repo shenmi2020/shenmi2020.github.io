@@ -20,10 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="神迷">
+    <meta name="description" content="穿过旷野的风 你慢些走">
+<meta property="og:type" content="website">
+<meta property="og:title" content="神迷的小屋">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="神迷">
+<meta property="og:site_name" content="神迷的小屋">
+<meta property="og:description" content="穿过旷野的风 你慢些走">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="神迷">
 <meta name="twitter:card" content="summary">
@@ -36,7 +38,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>神迷</title>
+<title>神迷的小屋</title>
   
 
 
@@ -66,7 +68,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">神迷</h1>
+      <h1 class="site-title">神迷的小屋</h1>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -116,8 +118,10 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="神迷"
+      src="https://i.imgtg.com/2022/08/03/AWTLX.png">
   <p class="site-author-name" itemprop="name">神迷</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">穿过旷野的风 你慢些走</div>
 </div>
 
 
@@ -152,20 +156,194 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/12/%E9%94%99%E8%AF%AF.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/10/docker%E5%AE%89%E8%A3%85php%E9%95%9C%E5%83%8F.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
       <meta itemprop="name" content="神迷">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神迷">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="神迷的小屋">
+      <meta itemprop="description" content="穿过旷野的风 你慢些走">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 神迷">
+      <meta itemprop="name" content="undefined | 神迷的小屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/10/docker%E5%AE%89%E8%A3%85php%E9%95%9C%E5%83%8F.html" class="post-title-link" itemprop="url">docker安装php镜像</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      
+
+      <time title="创建时间：2022-08-10 11:48:01" itemprop="dateCreated datePublished" datetime="2022-08-10T11:48:01+08:00">2022-08-10</time>
+    </span>
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/biancheng/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>因工作需要使用两种php版本，考虑使用docker来部署环境，几年前简单学习过docker现在已经忘干净了，再来学习下</p>
+<p>先安装好docker，这里不做记录<br>1.去<a target="_blank" rel="noopener" href="https://hub.docker.com/_/php/tags%E6%9F%A5%E8%AF%A2%E8%87%AA%E5%B7%B1%E9%9C%80%E8%A6%81%E7%9A%84%E7%89%88%E6%9C%AC%EF%BC%8C%E5%A4%8D%E5%88%B6%E5%91%BD%E4%BB%A4">https://hub.docker.com/_/php/tags查询自己需要的版本，复制命令</a><br>docker pull php:8.2-rc-cli-buster<br>ps: 下载慢可以配置docker镜像，如阿里云和163等</p>
+<p>2.docker run -t -i php:8.2 &#x2F;bin&#x2F;bash<br>这里最好配置好端口映射-p: 指定端口映射，格式为：主机(宿主)端口:容器端口<br>目录映射-v &#x2F;data:&#x2F;data<br>也可以后期修改docker配置文件，不过有点麻烦。。。</p>
+<p>3.docker exec -it php:8.2 &#x2F;bin&#x2F;bash<br>进入运行的容器中，可以执行命令</p>
+<p>到这里就可以使用了<br>如果需要连接宿主机的软件如mysql redis等，一般宿主机默认ip 172.17.0.1<br>记录下一些常用命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">docker start *  // 启动一个容器</span><br><span class="line">docker images   // 查看镜像列表</span><br><span class="line">docker ps -a    // 查看所有容器</span><br></pre></td></tr></table></figure>
+
+<p>vscode可以搜索安装docker插件，可以图形化启动容器，也可以编辑器终端打开容器shell</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/30/PHP%E9%93%B6%E8%A1%8C%E5%8A%A0%E7%AD%BE%E5%8A%A0%E5%AF%86%E5%AF%B9%E6%8E%A5.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
+      <meta itemprop="name" content="神迷">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="神迷的小屋">
+      <meta itemprop="description" content="穿过旷野的风 你慢些走">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 神迷的小屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/30/PHP%E9%93%B6%E8%A1%8C%E5%8A%A0%E7%AD%BE%E5%8A%A0%E5%AF%86%E5%AF%B9%E6%8E%A5.html" class="post-title-link" itemprop="url">PHP银行加签加密对接</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      
+
+      <time title="创建时间：2022-06-30 11:38:17" itemprop="dateCreated datePublished" datetime="2022-06-30T11:38:17+08:00">2022-06-30</time>
+    </span>
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/biancheng/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>PHP对接银行加密代码记录</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/06/30/PHP%E9%93%B6%E8%A1%8C%E5%8A%A0%E7%AD%BE%E5%8A%A0%E5%AF%86%E5%AF%B9%E6%8E%A5.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/12/%E9%94%99%E8%AF%AF.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
+      <meta itemprop="name" content="神迷">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="神迷的小屋">
+      <meta itemprop="description" content="穿过旷野的风 你慢些走">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 神迷的小屋">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -242,17 +420,17 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/26/composer%E6%9C%BA%E5%88%B6.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
       <meta itemprop="name" content="神迷">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神迷">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="神迷的小屋">
+      <meta itemprop="description" content="穿过旷野的风 你慢些走">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 神迷">
+      <meta itemprop="name" content="undefined | 神迷的小屋">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -331,17 +509,17 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/26/php%E5%BC%95%E7%94%A8%E7%89%B9%E6%80%A7%E6%9F%A5%E8%AF%A2%E6%97%A0%E9%99%90%E7%BA%A7%E5%88%86%E7%B1%BB%E6%A0%91.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
       <meta itemprop="name" content="神迷">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神迷">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="神迷的小屋">
+      <meta itemprop="description" content="穿过旷野的风 你慢些走">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 神迷">
+      <meta itemprop="name" content="undefined | 神迷的小屋">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -418,17 +596,17 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/12/TP6%E5%AE%89%E8%A3%85GatewayWorker.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
       <meta itemprop="name" content="神迷">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神迷">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="神迷的小屋">
+      <meta itemprop="description" content="穿过旷野的风 你慢些走">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 神迷">
+      <meta itemprop="name" content="undefined | 神迷的小屋">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -506,17 +684,17 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/21/hyperf%E6%A1%86%E6%9E%B6%E6%95%B0%E6%8D%AE%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F%E5%B0%81%E8%A3%85.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
       <meta itemprop="name" content="神迷">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神迷">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="神迷的小屋">
+      <meta itemprop="description" content="穿过旷野的风 你慢些走">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 神迷">
+      <meta itemprop="name" content="undefined | 神迷的小屋">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -593,17 +771,17 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/16/hyperf%E6%A1%86%E6%9E%B6cache%E7%B1%BB%E5%B0%81%E8%A3%85.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
       <meta itemprop="name" content="神迷">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神迷">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="神迷的小屋">
+      <meta itemprop="description" content="穿过旷野的风 你慢些走">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 神迷">
+      <meta itemprop="name" content="undefined | 神迷的小屋">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -680,17 +858,17 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/06/php%E7%94%9F%E6%88%90%E5%94%AF%E4%B8%80id%E7%9A%84%E6%96%B9%E6%B3%95.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
       <meta itemprop="name" content="神迷">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神迷">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="神迷的小屋">
+      <meta itemprop="description" content="穿过旷野的风 你慢些走">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 神迷">
+      <meta itemprop="name" content="undefined | 神迷的小屋">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -767,17 +945,17 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/22/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
       <meta itemprop="name" content="神迷">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神迷">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="神迷的小屋">
+      <meta itemprop="description" content="穿过旷野的风 你慢些走">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 神迷">
+      <meta itemprop="name" content="undefined | 神迷的小屋">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -843,183 +1021,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/20/mysql%E8%A1%8C%E7%BA%A7%E9%94%81.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="神迷">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神迷">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 神迷">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/04/20/mysql%E8%A1%8C%E7%BA%A7%E9%94%81.html" class="post-title-link" itemprop="url">mysql行级锁</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      
-
-      <time title="创建时间：2021-04-20 10:28:00" itemprop="dateCreated datePublished" datetime="2021-04-20T10:28:00+08:00">2021-04-20</time>
-    </span>
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/biancheng/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在用户注册功能接口时存在数据库重复插入用户问题，可以使用for update解决。<br>在thinkphp框架中需要使用事务配合Db::name(‘user’)-&gt;where(‘id’,1)-&gt;lock(true)-&gt;find();</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/20/mysql%E8%A1%8C%E7%BA%A7%E9%94%81.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/12/20/js%E4%B8%ADownerDocument%E4%B8%8EdocumentElement%E7%9A%84%E5%8C%BA%E5%88%AB.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="神迷">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神迷">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 神迷">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/12/20/js%E4%B8%ADownerDocument%E4%B8%8EdocumentElement%E7%9A%84%E5%8C%BA%E5%88%AB.html" class="post-title-link" itemprop="url">js中ownerDocument与documentElement的区别</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      
-
-      <time title="创建时间：2019-12-20 10:20:00" itemprop="dateCreated datePublished" datetime="2019-12-20T10:20:00+08:00">2019-12-20</time>
-    </span>
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/biancheng/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>ownerDocument是Node对象的一个属性。返回的是某个元素的根节点文档对象，即document 对象</p>
-<p>documentElement是document对象的属性，返回的是文档根节点。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/20/js%E4%B8%ADownerDocument%E4%B8%8EdocumentElement%E7%9A%84%E5%8C%BA%E5%88%AB.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>

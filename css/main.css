@@ -27,7 +27,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --body-bg-color: #15202b;
-    --content-bg-color: #192734;
+    --content-bg-color: #252d38;
     --card-bg-color: #555;
     --text-color: #d9dad3;
     --blockquote-color: #bbb;
@@ -1321,11 +1321,12 @@ pre code {
   border: 1px solid #eee;
   max-width: 120px;
   padding: 2px;
+  border-radius: 50%;
 }
 .site-author-name {
   color: var(--text-color);
   font-weight: 600;
-  margin: 0;
+  margin: 15px;
 }
 .site-description {
   color: #999;
@@ -2027,7 +2028,7 @@ pre code {
 .posts-expand .post-meta-container {
   font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 0.75em;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 .posts-expand .post-meta-container .post-description {
   font-size: 0.875em;
@@ -3101,7 +3102,7 @@ li {
 @media (prefers-color-scheme: dark) {
   body {
     --waline-text-color: #d9dad3 !important;
-    --waline-bgcolor: #192734 !important;
+    --waline-bgcolor: #252d38 !important;
     --waline-bgcolor-light: #15202b !important;
   }
 }
