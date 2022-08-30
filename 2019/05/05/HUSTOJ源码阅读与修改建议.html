@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="从代码上HUSTOJ分为两大部分，core和web，分别对应判题和数据管理两大功能。 两者之间数据交换有两种方式：1、通过数据库，轮询。2、通过w3m实现的http请求。 两种方式的选择在判题端的配置文件&#x2F;home&#x2F;judge&#x2F;etc&#x2F;judge.conf中，HTTP_JUDGE&#x3D;1则启用后者，默认为前者。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HUSTOJ源码阅读与修改建议">
+<meta property="og:url" content="http://example.com/2019/05/05/HUSTOJ%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%8E%E4%BF%AE%E6%94%B9%E5%BB%BA%E8%AE%AE.html">
+<meta property="og:site_name" content="神迷">
+<meta property="og:description" content="从代码上HUSTOJ分为两大部分，core和web，分别对应判题和数据管理两大功能。 两者之间数据交换有两种方式：1、通过数据库，轮询。2、通过w3m实现的http请求。 两种方式的选择在判题端的配置文件&#x2F;home&#x2F;judge&#x2F;etc&#x2F;judge.conf中，HTTP_JUDGE&#x3D;1则启用后者，默认为前者。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-05-05T07:54:00.000Z">
+<meta property="article:modified_time" content="2022-08-03T08:15:23.289Z">
+<meta property="article:author" content="神迷">
+<meta property="article:tag" content="hustoj">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2019/05/05/HUSTOJ%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%8E%E4%BF%AE%E6%94%B9%E5%BB%BA%E8%AE%AE.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2019/05/05/HUSTOJ%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%8E%E4%BF%AE%E6%94%B9%E5%BB%BA%E8%AE%AE.html","path":"2019/05/05/HUSTOJ源码阅读与修改建议.html","title":"HUSTOJ源码阅读与修改建议"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>HUSTOJ源码阅读与修改建议 | 神迷</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">神迷</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-hutu"><a href="/hutu/" rel="section"><i class="fa fa-sitemap fa-fw"></i>糊涂</a></li><li class="menu-item menu-item-biancheng"><a href="/biancheng/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>编程</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间轴</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">神迷</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/05/05/HUSTOJ%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%8E%E4%BF%AE%E6%94%B9%E5%BB%BA%E8%AE%AE.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="神迷">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="神迷">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="HUSTOJ源码阅读与修改建议 | 神迷">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HUSTOJ源码阅读与修改建议
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      
+
+      <time title="创建时间：2019-05-05 15:54:00" itemprop="dateCreated datePublished" datetime="2019-05-05T15:54:00+08:00">2019-05-05</time>
+    </span>
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/biancheng/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>从代码上HUSTOJ分为两大部分，core和web，分别对应判题和数据管理两大功能。</p>
+<p>两者之间数据交换有两种方式：1、通过数据库，轮询。2、通过w3m实现的http请求。</p>
+<p>两种方式的选择在判题端的配置文件&#x2F;home&#x2F;judge&#x2F;etc&#x2F;judge.conf中，HTTP_JUDGE&#x3D;1则启用后者，默认为前者。</p>
+<span id="more"></span>
+
+<p>core分3部分，judged、judge_client、sim</p>
+<p>其中judged为服务进程，d即daemon。负责轮询数据库或web端，提取判题队列。</p>
+<p>当发现新任务时产生judge_client进程。</p>
+<p>judge_client进程为实际判题程序，负责准备运行环境、数据，运行并监控目标程序的系统调用，采集运行指标，判断运行结果。</p>
+<p>当配置为启用抄袭检查时，judge_client将调用sim，判断相似性结果，并写回数据库或web端。</p>
+<p>sim为第三方应用程序，可进行语法分析判断文本相似度，通过检验的程序将由judge_client复制进题目数据的ac目录，成为新的参考样本。</p>
+<p>w3m是linux下一个开源web文本浏览器，提供了基于命令行的http交互功能，这里用做http客户端，用curl-lib应该也可以实现，本人熟悉w3m不熟悉curl，因此偷懒。</p>
+<p>web分两大部分，前端和admin目录下的管理程序。</p>
+<p>前端无非是数据库的CRUD操作，关键功能是将用户提交的程序源码加入数据库的任务队列（solution表、souce_code表）。</p>
+<p>管理程序提供具有administrator等高级权限的账号管理试题、账号等方面的功能。</p>
+<p>其中FPS导入导出程序主要为XML格式的数据处理。</p>
+<p>特别的，judged可以多重启动，通过增加基准目录参数指定启动位置（默认&#x2F;home&#x2F;judge），从而确定judge.conf的位置，并确定其他参数。</p>
+<p>因此不但可以一个web服务器下挂多个判题服务器，也可以一台物理机器上同时启动任意多个相互独立的OJ系统。</p>
+<p>实际使用中，使用开源的ispcp虚拟主机管理系统搭建多Web环境与hustoj协同工作取得了良好效果。</p>
+<p>LiveCD的实现，通过uck工具解压出ubuntulivecd的chroot环境，并在其中删除oo、gnome等大型程序释放空间，然后用apt工具安装基础环境，安装配置lxde和hustoj。再使用uck重新打包形成iso。</p>
+<p>升级方式：利用googlecode的svn服务，用svn客户端分别升级core和web,再编译core，并通过web提供可能的数据库升级。</p>
+<p>livecd中的升级脚本为updagte-hustoj，可以用which命令查找其实际位置</p>
+<hr>
+<p>0、 准备知识</p>
+<p>a)        最新系统源码可以用svn取得，或在下述地址直接浏览</p>
+<p>i.  <a target="_blank" rel="noopener" href="http://code.google.com/p/hustoj/source/browse/">http://code.google.com/p/hustoj/source/browse/</a>   墙外老版</p>
+<p>ii.  <a target="_blank" rel="noopener" href="https://github.com/zhblue/hustoj">https://github.com/zhblue/hustoj</a>                         无墙新版</p>
+<p>b)       系统分为Web和Core两个部分</p>
+<p>c)        简化ER图</p>
+<p>hustoj-db</p>
+<p>d)       Web与core的连接方式有两种，实际运行可选其中一种</p>
+<p>i.   数据库连接【默认】</p>
+<ol>
+<li><pre><code>   Web插入Solution表
+</code></pre>
+</li>
+<li><pre><code>   core轮询solution表，发现新纪录
+</code></pre>
+</li>
+<li><pre><code>   core更新solution表result等字段
+</code></pre>
+</li>
+<li><pre><code>   Web端轮询soltuion显示result等字段。
+</code></pre>
+</li>
+</ol>
+<p>ii.   HTTP方式</p>
+<ol>
+<li><pre><code>   Web插入Solution表
+</code></pre>
+</li>
+<li><pre><code>   core访问Web端admin/problem_judge.php，发现新纪录
+</code></pre>
+</li>
+<li><pre><code>   core向Web端admin/problem_judge.php提交数据，problem_judge.php更新solution表result等字段
+</code></pre>
+</li>
+<li><pre><code>   Web端轮询soltuion显示result等字段。
+</code></pre>
+</li>
+</ol>
+<p>1、 Web部分</p>
+<p>a)        阅读配置文件，弄清各设置含义</p>
+<p>i.      参考</p>
+<p>db_info.inc.php</p>
+<p>static $DB_HOST&#x3D;”localhost”; 数据库的服务器地址<br>static $DB_NAME&#x3D;”jol”; 数据库名<br>static $DB_USER&#x3D;”root”; 数据库用户名<br>static $DB_PASS&#x3D;”root”; 数据库密码<br>&#x2F;&#x2F; connect db<br>static $OJ_NAME&#x3D;”HUSTOJ”; OJ的名字，将取代页面标题等位置HUSTOJ字样。<br>static $OJ_HOME&#x3D;”.&#x2F;“; OJ的首页地址<br>static $OJ_ADMIN&#x3D;”root@localhost”; 管理员email<br>static $OJ_DATA&#x3D;”&#x2F;home&#x2F;judge&#x2F;data”; 测试数据所在目录，实际位置。<br>static $OJ_BBS&#x3D;”discuss”;&#x2F;&#x2F;“bbs” 论坛的形式，discuss为自带的简单论坛，bbs为外挂论坛，参考bbs.php代码。<br>static $OJ_ONLINE&#x3D;false; 是否使用在线监控，需要消耗一定的内存和计算，因此如果并发大建议关闭<br>static $OJ_LANG&#x3D;”en”; 默认的语言，中文为cn<br>static $OJ_SIM&#x3D;true; 是否显示相似度检测的结果。<br>static $OJ_DICT&#x3D;true; 是否启用在线英字典<br>static $OJ_LANGMASK&#x3D;1008; &#x2F;&#x2F;1mC 2mCPP 4mPascal 8mJava 16mRuby 32mBash 1008 for security reason to mask all other language 用掩码表示的OJ接受的提交语言，可以被比赛设定覆盖。<br>static $OJ_EDITE_AREA&#x3D;true;&#x2F;&#x2F; 是否启用高亮语法显示的提交界面，可以在线编程，无须IDE。<br>static $OJ_AUTO_SHARE&#x3D;false;&#x2F;&#x2F;true: 自动分享代码，启用的话，做出一道题就可以在该题的Status中看其他人的答案。<br>static $OJ_CSS&#x3D;”hoj.css”; 默认的css,可以选择dark.css和gcode.css,具有有限的界面制定效果。<br>static $OJ_SAE&#x3D;false; &#x2F;&#x2F;是否是在新浪的云平台运行web部分<br>static $OJ_VCODE&#x3D;true; 是否启用图形登录、注册验证码。<br>static $OJ_APPENDCODE&#x3D;false; 是否启用自动添加代码，启用的话，提交时会参考$OJ_DATA对应目录里是否有append.c一类的文件，有的话会把其中代码附加到对应语言的答案之后，巧妙使用可以指定main函数而要求学生编写main部分调用的函数。<br>static $OJ_MEMCACHE&#x3D;false;是否使用memcache作为页面缓存，如果不启用则用&#x2F;cache目录<br>static $OJ_MEMSERVER&#x3D;”127.0.0.1”; memcached的服务器地址<br>static $OJ_MEMPORT&#x3D;11211; memcached的端口<br>static $OJ_RANK_LOCK_PERCENT&#x3D;0; &#x2F;&#x2F;比赛封榜时间的比率，如5小时比赛设为0.2则最后1小时封榜。<br>static $OJ_SHOW_DIFF&#x3D;false; &#x2F;&#x2F;显示WrongAnswer时的对比</p>
+<p>b)       制定自己的前台模板(即改变页面效果)</p>
+<p>i.      复制template&#x2F;bs3目录，放置在template目录中，并改为新模板名。</p>
+<p>ii.     在db_info.inc.php中修改$OJ_TEMPLATE变量为新模板名</p>
+<p>iii.   浏览前台，打开要修改的页面，根据地址栏修改新目录中对应的php、css、images等文件，保存后刷新页面看修改效果。</p>
+<p>c)        模板制定成功以后应该有足够的知识开始修改template目录以外的部分了</p>
+<p>d)       论坛</p>
+<p>i.    建议集成GPL的phpbb，参考。</p>
+<p>ii.    集成Discuz</p>
+<ol>
+<li><p>建议购买商业许可。</p>
+</li>
+<li><p>参考&#x2F;web&#x2F;include&#x2F;login-discuz.php</p>
+</li>
+</ol>
+<p>e)        比赛根据数据通过率排名，而不只看AC数量</p>
+<p>i.             数据库solution表pass_rate字段表示改条通过率。</p>
+<p>ii.             把contestrank.php中的solved字段变成浮点对待。</p>
+<p>iii.            这里,修改积分方式，按照希望的方式积分。可能需要给TM增加字段$p_wa_best_rate记录每题最大通过率。</p>
+<p>f)        对有志于重写整个前台的勇士</p>
+<p>i.             希望你选择一种魔法师编程语言(node.js&#x2F;ror&#x2F;python&#x2F;go)。</p>
+<p>ii.             如果做不到前面那条，请做好长时间开发的心理准备。</p>
+<p>iii.             理论上任何现存web编程模型都可以，推荐JSP&#x2F;SSH(前方高能坑……)。</p>
+<p>iv.             建议实现admin&#x2F;problem_judge.php的仿真，方便直接集成原版core。(get&#x2F;post&#x2F; servlet-mapping)</p>
+<p>2、 Core部分</p>
+<p>a)        阅读配置文件，弄清各设置含义</p>
+<p>i.    参考</p>
+<p>judge.conf  不要复制下面的注释进入实际文件，judged和judge_client不能识别#注释。</p>
+<p>OJ_HOST_NAME&#x3D;127.0.0.1 #mysql host ip<br>OJ_USER_NAME&#x3D;root #mysql host username<br>OJ_PASSWORD&#x3D;root #mysql host password<br>OJ_DB_NAME&#x3D;jol #mysql DB name<br>OJ_PORT_NUMBER&#x3D;3306 #mysql port<br>OJ_RUNNING&#x3D;4 #max concurrent threads number of judge_client<br>OJ_SLEEP_TIME&#x3D;5 #judged work interval<br>OJ_TOTAL&#x3D;1 #Deprecated: total number of judged (hosts&#x2F;processes)<br>OJ_MOD&#x3D;0 #Deprecated: the number of this judged(host)<br>OJ_JAVA_TIME_BONUS&#x3D;2 #java’s extral time<br>OJ_JAVA_MEMORY_BONUS&#x3D;512 #java’s extral memory<br>OJ_SIM_ENABLE&#x3D;0 #using sim<br>OJ_HTTP_JUDGE&#x3D;0 #using http link to database(if enabled,mysql is not used anymore)<br>OJ_HTTP_BASEURL&#x3D;<a target="_blank" rel="noopener" href="http://127.0.0.1/JudgeOnline">http://127.0.0.1/JudgeOnline</a> #http link basedir<br>OJ_HTTP_USERNAME&#x3D;admin #account in db that has http_judge privilege<br>OJ_HTTP_PASSWORD&#x3D;admin #password of this account<br>OJ_OI_MODE&#x3D;0 #using oi (Olympiad in Informatics) mode<br>OJ_SHM_RUN&#x3D;0 #using &#x2F;dev&#x2F;shm for fast running &amp; low harddisk wear<br>OJ_USE_MAX_TIME&#x3D;0 #use the max time of all testcase rather than total time<br>OJ_LANG_SET&#x3D;0,1,2,3,4 #selective judge solution of languagesOJ_HOST_NAME&#x3D;127.0.0.1 如果用mysql连接读取数据库，数据库的主机地址<br>OJ_USER_NAME&#x3D;root 数据库帐号<br>OJ_PASSWORD&#x3D;root 数据库密码<br>OJ_DB_NAME&#x3D;jol 数据库名称<br>OJ_PORT_NUMBER&#x3D;3306 数据库端口<br>OJ_RUNNING&#x3D;4 judged会启动judge_client判题，这里规定最多同时运行几个judge_client<br>OJ_SLEEP_TIME&#x3D;5 judged通过轮询数据库发现新任务，轮询间隔的休息时间，单位秒<br>OJ_TOTAL&#x3D;1 老式并发处理中总的judged数量<br>OJ_MOD&#x3D;0 老式并发处理中，本judged负责处理solution_id按照TOTAL取模后余数为几的任务。<br>OJ_JAVA_TIME_BONUS&#x3D;2 Java等虚拟机语言获得的额外运行时间。<br>OJ_JAVA_MEMORY_BONUS&#x3D;512 Java等虚拟机语言获得的额外内存。<br>OJ_SIM_ENABLE&#x3D;0 是否使用sim进行代码相似度的检测<br>OJ_HTTP_JUDGE&#x3D;0 是否使用HTTP方式连接数据库，如果启用，则前面的HOST_NAME等设置忽略。<br>OJ_HTTP_BASEURL&#x3D;<a target="_blank" rel="noopener" href="http://127.0.0.1/JudgeOnline">http://127.0.0.1/JudgeOnline</a> 使用HTTP方式连接数据库的基础地址，就是OJ的首页地址。<br>OJ_HTTP_USERNAME&#x3D;admin 使用HTTP方式所用的用户帐号（HTTP_JUDGE权限），该帐号登录时不能启用VCODE图形验证码，但可以登录成功后启用。<br>OJ_HTTP_PASSWORD&#x3D;admin 密码<br>OJ_OI_MODE&#x3D;0 是否启用OI模式，即无论是否出错都继续判剩余的数据，在ACM比赛中一旦出错就停止运行。<br>OJ_SHM_RUN&#x3D;0 是否使用&#x2F;dev&#x2F;shm的共享内存虚拟磁盘来运行答案，如果启用能提高判题速度，但需要较多内存。<br>OJ_USE_MAX_TIME&#x3D;1 是否使用所有测试数据中最大的运行时间作为最后运行时间，如果不启用则以所有测试数据的总时间作为超时判断依据。<br>OJ_LANG_SET&#x3D;0,1,2,3,4 #判哪些语言的题目</p>
+<p>OJ_COMPILE_CHROOT&#x3D;0  是否在编译时使用chroot环境，避免某些编译期攻击。</p>
+<p>OJ_TURBO_MODE&#x3D;0 是否放弃用户表和问题表的数据一致性，以在大型比赛中添加更多的判题机来提高判题速度。</p>
+<p>ii.      源码<a target="_blank" rel="noopener" href="https://github.com/zhblue/hustoj/blob/master/trunk/core/judge_client/">https://github.com/zhblue/hustoj/blob/master/trunk/core/judge_client/</a></p>
+<p>b)       查阅Linux文档中关于下述关键词的内容</p>
+<p>i.  Ptrace</p>
+<p>ii.  Chroot</p>
+<p>iii. Setuid</p>
+<p>iv.  Proc</p>
+<p>v. shm</p>
+<p>c)        所有API限定在okcalls.h</p>
+<p>d)       代码查重工具sim</p>
+<p>i.   <a target="_blank" rel="noopener" href="https://github.com/zhblue/hustoj/tree/master/trunk/core/sim">https://github.com/zhblue/hustoj/tree/master/trunk/core/sim</a></p>
+<p>e)        对于计划改造Core来适应你自己的OJ前台的朋友</p>
+<p>i. 参考1.c.iv</p>
+<p>ii. 在judge_client.cc中搜索关键词wget</p>
+<p>f)        HUSTOJ的沙箱模型</p>
+<p>i.  相对openjudge.net的sandbox libraries而言并不严谨</p>
+<p>ii.  对于OJ而言，基本满足需求</p>
+<p>iii.  容易理解、容易实现、容易修改</p>
+<p>f) 莫名其妙的Runtime Error，请点击RuntimeError打开详细信息，并做英译汉。</p>
+<p>对于okcalls23&#x2F;64.h进行修改，请只修改符合你的操作系统架构（32位&#x2F;64位）的那个，0只能在首位，末尾必须为0。非0callid请加在中间任意位置。</p>
+<p>CSDN网友的源码注释</p>
+<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/legan/article/details/40746829">http://blog.csdn.net/legan/article/details/40746829</a></p>
+<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/legan/article/details/40789939">http://blog.csdn.net/legan/article/details/40789939</a></p>
+<p>result对应状态</p>
+<p>0: “等待”</p>
+<p>1: “等待重判”</p>
+<p>2: “编译中”</p>
+<p>3: “运行并评判”</p>
+<p>4: “正确”</p>
+<p>5: “格式错误”</p>
+<p>6: “答案错误”</p>
+<p>7: “时间超限”</p>
+<p>8: “内存超限”</p>
+<p>9: “输出超限”</p>
+<p>10: “运行错误”</p>
+<p>11: “编译错误”</p>
+<p>12: “编译成功”</p>
+<p>13: “运行完成”</p>
+<p>文档<br><a target="_blank" rel="noopener" href="https://github.com/zhblue/hustoj/blob/master/wiki/hustoj%E6%96%87%E6%A1%A3%E5%A4%A7%E5%85%A8.pdf">https://github.com/zhblue/hustoj/blob/master/wiki/hustoj%E6%96%87%E6%A1%A3%E5%A4%A7%E5%85%A8.pdf</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+
+<span style="margin-top:30px; color:var(--blockquote-color); font-size:0.85em">
+        <br>
+        <span class="post-end-item" title="copyright"">
+            <span class="post-end-item-icon" style="margin-right: 3px">
+                <i class="fab fa-fw fa-creative-commons"></i>
+            </span>
+            <span class="post-end-item-text">采用署名-非商业性使用-相同方式共享 4.0（CC BY-NC-SA 4.0）许可协议</span>
+        </span>
+</span>
+
+
+
+
+
+<div class="donations">
+    
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/hustoj/" rel="tag"># hustoj</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/05/05/Judge%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%95%B4%E7%90%86.html" rel="next" title="hustoj特判程序special Judge使用方法整理">
+                  hustoj特判程序special Judge使用方法整理 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">神迷</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="完成qt绘画编辑器功能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="qt画板">
+<meta property="og:url" content="http://example.com/2019/09/26/qt%E7%94%BB%E6%9D%BF.html">
+<meta property="og:site_name" content="神迷">
+<meta property="og:description" content="完成qt绘画编辑器功能">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-09-26T07:23:00.000Z">
+<meta property="article:modified_time" content="2022-08-03T08:15:23.289Z">
+<meta property="article:author" content="神迷">
+<meta property="article:tag" content="qt">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2019/09/26/qt%E7%94%BB%E6%9D%BF.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2019/09/26/qt%E7%94%BB%E6%9D%BF.html","path":"2019/09/26/qt画板.html","title":"qt画板"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>qt画板 | 神迷</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">神迷</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-hutu"><a href="/hutu/" rel="section"><i class="fa fa-sitemap fa-fw"></i>糊涂</a></li><li class="menu-item menu-item-biancheng"><a href="/biancheng/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>编程</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间轴</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">神迷</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/09/26/qt%E7%94%BB%E6%9D%BF.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="神迷">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="神迷">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="qt画板 | 神迷">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          qt画板
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      
+
+      <time title="创建时间：2019-09-26 15:23:00" itemprop="dateCreated datePublished" datetime="2019-09-26T15:23:00+08:00">2019-09-26</time>
+    </span>
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/biancheng/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>完成qt绘画编辑器功能</p>
+<span id="more"></span>
+
+<figure class="highlight qt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br></pre></td><td class="code"><pre><span class="line">#ifndef JRPAINTER_H</span><br><span class="line">#define JRPAINTER_H</span><br><span class="line">#include &lt;QQuickPaintedItem&gt;</span><br><span class="line">#include &lt;QVector&gt;</span><br><span class="line">#include &lt;QPointF&gt;</span><br><span class="line">#include &lt;QImage&gt;</span><br><span class="line"></span><br><span class="line">class <span class="attribute">JRPainter</span> : public <span class="title">QQuickPaintedItem</span></span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"></span><br><span class="line"><span class="comment">//    Q_PROPERTY(int penWidth READ penWidth WRITE setPenWidth)</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">public</span>:</span><br><span class="line">    JRPainter(QQuickItem *<span class="built_in">parent</span> = <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> paint(QPainter *painter);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> mousePressEvent(QMouseEvent *event);</span><br><span class="line">    <span class="keyword">void</span> mouseMoveEvent(QMouseEvent *event);</span><br><span class="line">    <span class="keyword">void</span> mouseReleaseEvent(QMouseEvent *event);</span><br><span class="line"></span><br><span class="line">    Q_INVOKABLE <span class="keyword">void</span> init();</span><br><span class="line"> <span class="comment">//   Q_INVOKABLE void clear();</span></span><br><span class="line">    Q_INVOKABLE <span class="keyword">void</span> stop() &#123;</span><br><span class="line">        qDebug() &lt;&lt; <span class="string">&quot;Gemini::stop() called&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    enum <span class="title">shape</span> &#123;</span><br><span class="line">        Line = <span class="number">1</span>,Ellipse,Rect,Triangle</span><br><span class="line">    &#125;;</span><br><span class="line">    Q_ENUM(shape)</span><br><span class="line">    Q_INVOKABLE <span class="keyword">void</span> setShape(shape);</span><br><span class="line">    Q_INVOKABLE <span class="keyword">void</span> setPenWidth(<span class="built_in">int</span> w);</span><br><span class="line">    Q_INVOKABLE <span class="keyword">void</span> setPenColor(QColor c);</span><br><span class="line"><span class="attribute">signals</span>:</span><br><span class="line"></span><br><span class="line">public <span class="attribute">slots</span>:</span><br><span class="line"></span><br><span class="line"><span class="attribute">private</span>:</span><br><span class="line">    <span class="keyword">void</span> drawShape(QImage &amp;theImage);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attribute">private</span>:</span><br><span class="line">   QVector&lt;QPointF&gt; <span class="built_in">point</span>;</span><br><span class="line">   QImage m_bgImage;</span><br><span class="line">   QImage m_tempImage;</span><br><span class="line">   <span class="built_in">bool</span> isDrawing;</span><br><span class="line">   QPointF m_nowPoint;</span><br><span class="line">   QPointF m_lastPoint;</span><br><span class="line">   <span class="attribute">JRPainter</span>::shape type;</span><br><span class="line">   <span class="built_in">int</span> penWidth;</span><br><span class="line">   QColor penColor;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif <span class="comment">// JRPAINTER_H</span></span><br><span class="line">　　</span><br><span class="line"></span><br><span class="line">#include <span class="string">&quot;jrpainter.h&quot;</span></span><br><span class="line">#include &lt;QPainter&gt;</span><br><span class="line">#include &lt;QImage&gt;</span><br><span class="line"></span><br><span class="line"><span class="attribute">JRPainter</span>::JRPainter(QQuickItem *<span class="built_in">parent</span>):</span><br><span class="line">    isDrawing(<span class="literal">false</span>),</span><br><span class="line">    type(Line),</span><br><span class="line">    penWidth(<span class="number">4</span>),</span><br><span class="line">    penColor(QColor(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>))</span><br><span class="line">&#123;</span><br><span class="line">    setAcceptedMouseButtons(<span class="attribute">Qt</span>::LeftButton);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="attribute">JRPainter</span>::setShape(<span class="attribute">JRPainter</span>::shape t)    <span class="comment">// 设置绘制类型</span></span><br><span class="line">&#123;</span><br><span class="line">    type = t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="attribute">JRPainter</span>::setPenWidth(<span class="built_in">int</span> w)    <span class="comment">// 设置画笔宽度</span></span><br><span class="line">&#123;</span><br><span class="line">    penWidth = w;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="attribute">JRPainter</span>::setPenColor(QColor c)    <span class="comment">// 设置颜色</span></span><br><span class="line">&#123;</span><br><span class="line">    penColor = c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="attribute">JRPainter</span>::paint(QPainter *painter)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(isDrawing)&#123;</span><br><span class="line">        painter-&gt;drawImage(<span class="number">0</span>,<span class="number">0</span>,m_tempImage);</span><br><span class="line">    &#125;<span class="title">else</span>&#123;</span><br><span class="line">        painter-&gt;drawImage(<span class="number">0</span>,<span class="number">0</span>,m_bgImage);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> <span class="attribute">JRPainter</span>::init()</span><br><span class="line">&#123;</span><br><span class="line">    QImage img(<span class="string">&quot;:/res/background/Farm.svg&quot;</span>);</span><br><span class="line">    m_bgImage = img;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="attribute">JRPainter</span>::mousePressEvent(QMouseEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">    m_lastPoint = event-&gt;localPos();</span><br><span class="line">    isDrawing = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="attribute">JRPainter</span>::mouseMoveEvent(QMouseEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">    m_nowPoint = event-&gt;localPos();</span><br><span class="line">    m_tempImage = m_bgImage;</span><br><span class="line">    <span class="keyword">if</span>(type == Line)&#123;</span><br><span class="line">        drawShape(m_bgImage);</span><br><span class="line">    &#125;<span class="title">else</span>&#123;</span><br><span class="line">        drawShape(m_tempImage);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="attribute">JRPainter</span>::mouseReleaseEvent(QMouseEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">    isDrawing = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (type != Line) &#123;</span><br><span class="line">       drawShape(m_bgImage);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="attribute">JRPainter</span>::drawShape(QImage &amp;theImage)</span><br><span class="line">&#123;</span><br><span class="line">    QPainter painter(&amp;theImage);</span><br><span class="line">    QPen apen;</span><br><span class="line">    apen.setWidth(penWidth);</span><br><span class="line">    apen.setColor(penColor);</span><br><span class="line">    painter.setPen(apen);</span><br><span class="line">    painter.setRenderHint(<span class="attribute">QPainter</span>::Antialiasing, <span class="literal">true</span>);</span><br><span class="line">    <span class="built_in">int</span> x1, y1, x2, y2;</span><br><span class="line">    x1 = m_lastPoint.x();</span><br><span class="line">    y1 = m_lastPoint.y();</span><br><span class="line">    x2 = m_nowPoint.x();</span><br><span class="line">    y2 = m_nowPoint.y();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (type) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="attribute">JRPainter</span>::<span class="attribute">Line</span>:</span><br><span class="line">        &#123;</span><br><span class="line">            painter.drawLine(m_lastPoint,m_nowPoint);</span><br><span class="line">            m_lastPoint = m_nowPoint;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">case</span> <span class="attribute">JRPainter</span>::<span class="attribute">Ellipse</span>:</span><br><span class="line">        &#123;</span><br><span class="line">            painter.drawEllipse(x1,y1,x2-x1,y2-y1);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">case</span> <span class="attribute">JRPainter</span>::<span class="attribute">Rect</span>:</span><br><span class="line">        &#123;</span><br><span class="line">            painter.drawRect(x1, y1, x2 - x1, y2 - y1);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">case</span> <span class="attribute">JRPainter</span>::<span class="attribute">Triangle</span>:</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> top, buttom, left, right;</span><br><span class="line">            top = (y1 &lt; y2) ? <span class="attribute">y1</span> : y2;</span><br><span class="line">            buttom = (y1 &gt; y2) ? <span class="attribute">y1</span> : y2;</span><br><span class="line">            left = (x1 &lt; x2) ? <span class="attribute">x1</span> : x2;</span><br><span class="line">            right = (x1 &gt; x2) ? <span class="attribute">x1</span> : x2;</span><br><span class="line">            <span class="keyword">if</span> (y1 &lt; y2)</span><br><span class="line">            &#123;</span><br><span class="line">                QPoint points[<span class="number">3</span>] = &#123; QPoint(left,buttom), QPoint(right,buttom), QPoint((right + left) / <span class="number">2</span>,top) &#125;;</span><br><span class="line">                painter.drawPolygon(points, <span class="number">3</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="title">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                QPoint points[<span class="number">3</span>] = &#123; QPoint(left,top), QPoint(right,top), QPoint((left + right) / <span class="number">2</span>,buttom) &#125;;</span><br><span class="line">                painter.drawPolygon(points, <span class="number">3</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    update();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>qml如果使用c++中定义的方法，需要</p>
+<p>Q_INVOKABLE void init();<br>qml中 painter.init();调用即可<br>感谢<a target="_blank" rel="noopener" href="https://blog.csdn.net/u013165921/article/details/79393265%E7%9A%84%E5%8D%9A%E5%AE%A2">https://blog.csdn.net/u013165921/article/details/79393265的博客</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+
+<span style="margin-top:30px; color:var(--blockquote-color); font-size:0.85em">
+        <br>
+        <span class="post-end-item" title="copyright"">
+            <span class="post-end-item-icon" style="margin-right: 3px">
+                <i class="fab fa-fw fa-creative-commons"></i>
+            </span>
+            <span class="post-end-item-text">采用署名-非商业性使用-相同方式共享 4.0（CC BY-NC-SA 4.0）许可协议</span>
+        </span>
+</span>
+
+
+
+
+
+<div class="donations">
+    
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/qt/" rel="tag"># qt</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/08/30/gridview.html" rel="prev" title="gridview">
+                  <i class="fa fa-chevron-left"></i> gridview
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/12/20/js%E4%B8%ADownerDocument%E4%B8%8EdocumentElement%E7%9A%84%E5%8C%BA%E5%88%AB.html" rel="next" title="js中ownerDocument与documentElement的区别">
+                  js中ownerDocument与documentElement的区别 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">神迷</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
