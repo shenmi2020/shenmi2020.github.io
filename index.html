@@ -156,6 +156,364 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/19/uniapp%E4%B8%8A%E4%BC%A0%E9%98%BF%E9%87%8COSS.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
+      <meta itemprop="name" content="神迷">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="神迷的小屋">
+      <meta itemprop="description" content="穿过旷野的风 你慢些走">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 神迷的小屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/12/19/uniapp%E4%B8%8A%E4%BC%A0%E9%98%BF%E9%87%8COSS.html" class="post-title-link" itemprop="url">uniapp上传阿里OSS</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      
+      
+
+      <time title="创建时间：2022-12-19 11:59:12" itemprop="dateCreated datePublished" datetime="2022-12-19T11:59:12+08:00">2022-12-19</time>
+    </span>
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/biancheng/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>开发过程中需要uniapp上传图片到阿里云oss，uniapp官方文档文件上传不支持PUT方式<br>搜索解决方案并记录<br>Uniapp 通过 get 请求获取文件字节流后，再使用PUT请求上传文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">uni.<span class="title function_">request</span>(&#123;</span><br><span class="line">    <span class="attr">url</span>: path, <span class="comment">//仅为示例，并非真实接口地址。</span></span><br><span class="line">    <span class="attr">responseType</span>: <span class="string">&#x27;arraybuffer&#x27;</span>,</span><br><span class="line">    <span class="attr">success</span>: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/29/%E8%AE%B0%E5%BD%95php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
+      <meta itemprop="name" content="神迷">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="神迷的小屋">
+      <meta itemprop="description" content="穿过旷野的风 你慢些走">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 神迷的小屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/11/29/%E8%AE%B0%E5%BD%95php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B.html" class="post-title-link" itemprop="url">记录php编译安装过程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      
+      
+
+      <time title="创建时间：2022-11-29 15:21:59" itemprop="dateCreated datePublished" datetime="2022-11-29T15:21:59+08:00">2022-11-29</time>
+    </span>
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/biancheng/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <pre><code>1.在php官网下载页下载php的编译安装包，这里以7.4.28举例
+https://www.php.net/downloads.php
+找到php-7.4.28.tar.gz，右键复制下载链接，例如：
+https://www.php.net/distributions/php-7.4.28.tar.gz
+centos终端输入命令进行下载：
+wget https://www.php.net/distributions/php-7.4.28.tar.gz
+2.编译安装
+    1.在下载目录进行解压
+    tar -zxvf php-7.3.28.tar.gz
+    2.进入解压包目录,这里完整目录名可以输入php后，点击tab按键快速自动补全
+    cd php-7.3.28
+    3.安装依赖
+    yum install libxml2-devel sqlite-devel libcurl-devel oniguruma-devel libpng-devel libjpeg-devel freetype-devel libzip-devel openssl-devel -y
+    设置编译参数。因为目录内含有configure文件，所以可进行编译操作，编译编译参考如下
+    4.设置编译参数。因为目录内含有configure文件，所以可进行编译操作，编译编译参考如下
+    ./configure --prefix=/usr/local/php --with-config-file-path=/usr/local/php/etc --with-mhash --with-openssl --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-iconv --with-zlib --enable-inline-optimization --disable-debug --disable-rpath --enable-shared --enable-bcmath --enable-shmop --enable-sysvsem --enable-gd --with-jpeg --with-freetype --enable-mbregex --enable-mbstring --enable-ftp --enable-pcntl --enable-sockets --enable-soap --without-pear --with-gettext --enable-session --with-curl  --enable-opcache --enable-fpm --with-fpm-user=php --with-fpm-group=php --without-gdbm --enable-fast-install --disable-fileinfo
+    5.编译安装，这个过程比较久，需要耐心等待。
+    make &amp;&amp; make install
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/20/thinkphp%E8%B7%A8%E5%9F%9F%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
+      <meta itemprop="name" content="神迷">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="神迷的小屋">
+      <meta itemprop="description" content="穿过旷野的风 你慢些走">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 神迷的小屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/20/thinkphp%E8%B7%A8%E5%9F%9F%E4%B8%AD%E9%97%B4%E4%BB%B6.html" class="post-title-link" itemprop="url">thinkphp跨域中间件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      
+      
+
+      <time title="创建时间：2022-10-20 10:18:49" itemprop="dateCreated datePublished" datetime="2022-10-20T10:18:49+08:00">2022-10-20</time>
+    </span>
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/biancheng/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>thinkphp框架跨域中间件代码记录<br>也可以使用tp官方中间件    \think\middleware\AllowCrossDomain::class</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/20/thinkphp%E8%B7%A8%E5%9F%9F%E4%B8%AD%E9%97%B4%E4%BB%B6.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/30/%E7%9F%A5%E8%AF%86%E7%82%B9.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
+      <meta itemprop="name" content="神迷">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="神迷的小屋">
+      <meta itemprop="description" content="穿过旷野的风 你慢些走">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 神迷的小屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/09/30/%E7%9F%A5%E8%AF%86%E7%82%B9.html" class="post-title-link" itemprop="url">知识点</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      
+      
+
+      <time title="创建时间：2022-09-30 10:30:03" itemprop="dateCreated datePublished" datetime="2022-09-30T10:30:03+08:00">2022-09-30</time>
+    </span>
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/biancheng/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>记忆力越来越差，整理一些基础知识  –&gt; 预防老年痴呆</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/09/30/%E7%9F%A5%E8%AF%86%E7%82%B9.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/10/docker%E5%AE%89%E8%A3%85php%E9%95%9C%E5%83%8F.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -209,30 +567,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-<p>因工作需要使用两种php版本，考虑使用docker来部署环境，几年前简单学习过docker现在已经忘干净了，再来学习下</p>
+          <p>因工作需要使用两种php版本，考虑使用docker来部署环境，几年前简单学习过docker现在已经忘干净了，再来学习下</p>
 <p>先安装好docker，这里不做记录<br>1.去<a target="_blank" rel="noopener" href="https://hub.docker.com/_/php/tags%E6%9F%A5%E8%AF%A2%E8%87%AA%E5%B7%B1%E9%9C%80%E8%A6%81%E7%9A%84%E7%89%88%E6%9C%AC%EF%BC%8C%E5%A4%8D%E5%88%B6%E5%91%BD%E4%BB%A4">https://hub.docker.com/_/php/tags查询自己需要的版本，复制命令</a><br>docker pull php:8.2-rc-cli-buster<br>ps: 下载慢可以配置docker镜像，如阿里云和163等</p>
-<p>2.docker run -t -i php:8.2 &#x2F;bin&#x2F;bash<br>这里最好配置好端口映射-p: 指定端口映射，格式为：主机(宿主)端口:容器端口<br>目录映射-v &#x2F;data:&#x2F;data<br>也可以后期修改docker配置文件，不过有点麻烦。。。</p>
-<p>3.docker exec -it php:8.2 &#x2F;bin&#x2F;bash<br>进入运行的容器中，可以执行命令</p>
-<p>到这里就可以使用了<br>如果需要连接宿主机的软件如mysql redis等，一般宿主机默认ip 172.17.0.1<br>记录下一些常用命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">docker start *  // 启动一个容器</span><br><span class="line">docker images   // 查看镜像列表</span><br><span class="line">docker ps -a    // 查看所有容器</span><br></pre></td></tr></table></figure>
-
-
-<p>vscode可以搜索安装docker插件，可以图形化启动容器，也可以编辑器终端打开容器shell</p>
-<p>docker容器添加新的端口映射方法<br>&#x2F;var&#x2F;lib&#x2F;docker&#x2F;containers&#x2F;&lt;容器Id&gt;&#x2F;hostconfig.json</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;PortBindings&quot;:&#123;</span><br><span class="line">			&quot;22/tcp&quot;:[&#123;&quot;HostIp&quot;:&quot;&quot;,&quot;HostPort&quot;:&quot;10112&quot;&#125;],</span><br><span class="line">			&quot;5901/tcp&quot;:[&#123;&quot;HostIp&quot;:&quot;&quot;,&quot;HostPort&quot;:&quot;10113&quot;&#125;],</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/var/lib/docker/containers/&lt;容器Id&gt;/config.v2.json</span><br></pre></td></tr></table></figure>
-<p>{<br>    “ExposedPorts”:{<br>        “22&#x2F;tcp”:{},<br>        “5901&#x2F;tcp”:{}<br>    }<br>}</p>
-<pre><code>
-docker安装php扩展
-
-在php容器中创建/usr/src/php目录
-docker-php-source extract
-
-docker-php-ext-configure
-docker-php-ext-enable  启用扩展
-docker-php-ext-install 安装扩展
-</code></pre>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/10/docker%E5%AE%89%E8%A3%85php%E9%95%9C%E5%83%8F.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -688,354 +1032,6 @@ docker-php-ext-install 安装扩展
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/21/hyperf%E6%A1%86%E6%9E%B6%E6%95%B0%E6%8D%AE%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F%E5%B0%81%E8%A3%85.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
-      <meta itemprop="name" content="神迷">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神迷的小屋">
-      <meta itemprop="description" content="穿过旷野的风 你慢些走">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 神迷的小屋">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/01/21/hyperf%E6%A1%86%E6%9E%B6%E6%95%B0%E6%8D%AE%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F%E5%B0%81%E8%A3%85.html" class="post-title-link" itemprop="url">hyperf框架数据返回格式封装</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      
-
-      <time title="创建时间：2022-01-21 11:18:00" itemprop="dateCreated datePublished" datetime="2022-01-21T11:18:00+08:00">2022-01-21</time>
-    </span>
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/biancheng/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>记录api成功和失败返回格式封装</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/01/21/hyperf%E6%A1%86%E6%9E%B6%E6%95%B0%E6%8D%AE%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F%E5%B0%81%E8%A3%85.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/16/hyperf%E6%A1%86%E6%9E%B6cache%E7%B1%BB%E5%B0%81%E8%A3%85.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
-      <meta itemprop="name" content="神迷">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神迷的小屋">
-      <meta itemprop="description" content="穿过旷野的风 你慢些走">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 神迷的小屋">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/01/16/hyperf%E6%A1%86%E6%9E%B6cache%E7%B1%BB%E5%B0%81%E8%A3%85.html" class="post-title-link" itemprop="url">hyperf框架cache类封装</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      
-
-      <time title="创建时间：2022-01-16 11:12:00" itemprop="dateCreated datePublished" datetime="2022-01-16T11:12:00+08:00">2022-01-16</time>
-    </span>
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/biancheng/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>缓存调用封装</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/01/16/hyperf%E6%A1%86%E6%9E%B6cache%E7%B1%BB%E5%B0%81%E8%A3%85.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/06/php%E7%94%9F%E6%88%90%E5%94%AF%E4%B8%80id%E7%9A%84%E6%96%B9%E6%B3%95.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
-      <meta itemprop="name" content="神迷">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神迷的小屋">
-      <meta itemprop="description" content="穿过旷野的风 你慢些走">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 神迷的小屋">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/06/php%E7%94%9F%E6%88%90%E5%94%AF%E4%B8%80id%E7%9A%84%E6%96%B9%E6%B3%95.html" class="post-title-link" itemprop="url">php生成唯一id的方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      
-
-      <time title="创建时间：2021-06-06 11:34:00" itemprop="dateCreated datePublished" datetime="2021-06-06T11:34:00+08:00">2021-06-06</time>
-    </span>
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/biancheng/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>记录php生成唯一值的几种方法</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/06/06/php%E7%94%9F%E6%88%90%E5%94%AF%E4%B8%80id%E7%9A%84%E6%96%B9%E6%B3%95.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/22/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
-      <meta itemprop="name" content="神迷">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神迷的小屋">
-      <meta itemprop="description" content="穿过旷野的风 你慢些走">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 神迷的小屋">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/04/22/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.html" class="post-title-link" itemprop="url">nginx反向代理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      
-
-      <time title="创建时间：2021-04-22 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-22T00:00:00+08:00">2021-04-22</time>
-    </span>
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/biancheng/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>记录nginx在二级目录下设置反向代理</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/22/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1049,7 +1045,7 @@ docker-php-ext-install 安装扩展
 
 <div class="copyright">
   &copy; 2017 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
