@@ -20,29 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="在用户注册功能接口时存在数据库重复插入用户问题，可以使用for update解决。在thinkphp框架中需要使用事务配合Db::name(‘user’)-&gt;where(‘id’,1)-&gt;lock(true)-&gt;find();">
+    <meta name="description" content="123456&#x2F;&#x2F; 获取本周时间$nowDate &#x3D; date(&amp;#x27;Y-m-d&amp;#x27;);$week &#x3D; date(&amp;#x27;w&amp;#x27;, strtotime($nowDate));$start_time &#x3D; strtotime(&quot;$nowDate - &quot; . ($week ? $week - 1 : 6).&amp;#x27; days&amp;#x27;);&#x2F;&#x2F; 本月时间$">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql行级锁">
-<meta property="og:url" content="http://example.com/2021/04/20/mysql%E8%A1%8C%E7%BA%A7%E9%94%81.html">
+<meta property="og:title" content="php获取本周时间方法">
+<meta property="og:url" content="http://example.com/2021/01/06/php%E8%8E%B7%E5%8F%96%E6%9C%AC%E5%91%A8%E6%97%B6%E9%97%B4%E6%96%B9%E6%B3%95.html">
 <meta property="og:site_name" content="神迷的小屋">
-<meta property="og:description" content="在用户注册功能接口时存在数据库重复插入用户问题，可以使用for update解决。在thinkphp框架中需要使用事务配合Db::name(‘user’)-&gt;where(‘id’,1)-&gt;lock(true)-&gt;find();">
+<meta property="og:description" content="123456&#x2F;&#x2F; 获取本周时间$nowDate &#x3D; date(&amp;#x27;Y-m-d&amp;#x27;);$week &#x3D; date(&amp;#x27;w&amp;#x27;, strtotime($nowDate));$start_time &#x3D; strtotime(&quot;$nowDate - &quot; . ($week ? $week - 1 : 6).&amp;#x27; days&amp;#x27;);&#x2F;&#x2F; 本月时间$">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-04-20T02:28:00.000Z">
-<meta property="article:modified_time" content="2022-08-03T08:15:23.289Z">
+<meta property="article:published_time" content="2021-01-06T07:22:54.000Z">
+<meta property="article:modified_time" content="2023-01-06T07:24:28.038Z">
 <meta property="article:author" content="神迷">
 <meta property="article:tag" content="php">
-<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2021/04/20/mysql%E8%A1%8C%E7%BA%A7%E9%94%81.html">
+<link rel="canonical" href="http://example.com/2021/01/06/php%E8%8E%B7%E5%8F%96%E6%9C%AC%E5%91%A8%E6%97%B6%E9%97%B4%E6%96%B9%E6%B3%95.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/04/20/mysql%E8%A1%8C%E7%BA%A7%E9%94%81.html","path":"2021/04/20/mysql行级锁.html","title":"mysql行级锁"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/01/06/php%E8%8E%B7%E5%8F%96%E6%9C%AC%E5%91%A8%E6%97%B6%E9%97%B4%E6%96%B9%E6%B3%95.html","path":"2021/01/06/php获取本周时间方法.html","title":"php获取本周时间方法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>mysql行级锁 | 神迷的小屋</title>
+<title>php获取本周时间方法 | 神迷的小屋</title>
   
 
 
@@ -161,7 +160,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/20/mysql%E8%A1%8C%E7%BA%A7%E9%94%81.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/06/php%E8%8E%B7%E5%8F%96%E6%9C%AC%E5%91%A8%E6%97%B6%E9%97%B4%E6%96%B9%E6%B3%95.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
@@ -174,12 +173,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="mysql行级锁 | 神迷的小屋">
+      <meta itemprop="name" content="php获取本周时间方法 | 神迷的小屋">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          mysql行级锁
+          php获取本周时间方法
         </h1>
 
         <div class="post-meta-container">
@@ -190,7 +189,7 @@
       </span>
       
 
-      <time title="创建时间：2021-04-20 10:28:00" itemprop="dateCreated datePublished" datetime="2021-04-20T10:28:00+08:00">2021-04-20</time>
+      <time title="创建时间：2021-01-06 15:22:54" itemprop="dateCreated datePublished" datetime="2021-01-06T15:22:54+08:00">2021-01-06</time>
     </span>
 
   
@@ -214,23 +213,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>在用户注册功能接口时存在数据库重复插入用户问题，可以使用for update解决。<br>在thinkphp框架中需要使用事务配合Db::name(‘user’)-&gt;where(‘id’,1)-&gt;lock(true)-&gt;find();</p>
-<span id="more"></span>
-
-<p>相关知识点：<br>for update是一种行级锁，又叫排它锁，一旦用户对某个行施加了行级加锁，则该用户可以查询也可以更新被加锁的数据行，其它用户只能查询但不能更新被加锁的数据行．如果其它用户想更新该表中的数据行，则也必须对该表施加行级锁．即使多个用户对一个表均使用了共享更新，但也不允许两个事务同时对一个表进行更新，真正对表进行更新时，是以独占方式锁表，一直到提交或复原该事务为止。行锁永远是独占方式锁。</p>
-<p>只有当出现如下之一的条件，才会释放共享更新锁：<br>1、执行提交（COMMIT）语句<br>2、退出数据库（LOG　OFF）<br>3、程序停止运行</p>
-<p>通常情况下，select语句是不会对数据加锁，妨碍影响其他的DML和DDL操作。同时，在多版本一致读机制的支持下，select语句也不会被其他类型语句所阻碍。<br>而select … for update 语句是我们经常使用手工加锁语句。在数据库中执行select … for update ,大家会发现会对数据库中的表或某些行数据进行锁表，在mysql中，如果查询条件带有主键，会锁行数据，如果没有，会锁表。<br> 由于InnoDB预设是Row-Level Lock，所以只有「明确」的指定主键，MySQL才会执行Row lock (只锁住被选取的资料例) ，否则MySQL将会执行Table Lock (将整个资料表单给锁住)。</p>
-<blockquote>
-<ul>
-<li>注意：</li>
-<li>1、FOR UPDATE仅适用于InnoDB，且必须在事务处理模块(BEGIN&#x2F;COMMIT)中才能生效。</li>
-<li>2、要测试锁定的状况，可以利用MySQL的Command Mode(命令模式) ，开两个视窗来做测试。</li>
-<li>3、Myisam 只支持表级锁，InnerDB支持行级锁 添加了(行级锁&#x2F;表级锁)锁的数据不能被其它事务再锁定，也不被其它事务修改。是表级锁时，不管是否查询到记录，都会锁定表。</li>
-</ul>
-</blockquote>
-<p>悲观锁：总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻塞直到它解锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。就像for update，再比如Java里面的同步原语synchronized关键字的实现也是悲观锁。</p>
-<p>乐观锁：顾名思义，就是很乐观，每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，可以使用版本号等机制。乐观锁适用于多读的应用类型，这样可以提高吞吐量，像数据库提供的类似于write_condition机制，其实都是提供的乐观锁。</p>
-
+        <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取本周时间</span></span><br><span class="line"><span class="variable">$nowDate</span> = <span class="title function_ invoke__">date</span>(<span class="string">&#x27;Y-m-d&#x27;</span>);</span><br><span class="line"><span class="variable">$week</span> = <span class="title function_ invoke__">date</span>(<span class="string">&#x27;w&#x27;</span>, <span class="title function_ invoke__">strtotime</span>(<span class="variable">$nowDate</span>));</span><br><span class="line"><span class="variable">$start_time</span> = <span class="title function_ invoke__">strtotime</span>(<span class="string">&quot;<span class="subst">$nowDate</span> - &quot;</span> . (<span class="variable">$week</span> ? <span class="variable">$week</span> - <span class="number">1</span> : <span class="number">6</span>).<span class="string">&#x27; days&#x27;</span>);</span><br><span class="line"><span class="comment">// 本月时间</span></span><br><span class="line"><span class="variable">$start_time</span> = <span class="title function_ invoke__">date</span>(<span class="string">&#x27;Y-m-01&#x27;</span>);</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -260,20 +243,19 @@
 
           <div class="post-tags">
               <a href="/tags/php/" rel="tag"># php</a>
-              <a href="/tags/mysql/" rel="tag"># mysql</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/01/06/php%E8%8E%B7%E5%8F%96%E6%9C%AC%E5%91%A8%E6%97%B6%E9%97%B4%E6%96%B9%E6%B3%95.html" rel="prev" title="php获取本周时间方法">
-                  <i class="fa fa-chevron-left"></i> php获取本周时间方法
+                <a href="/2019/12/20/js%E4%B8%ADownerDocument%E4%B8%8EdocumentElement%E7%9A%84%E5%8C%BA%E5%88%AB.html" rel="prev" title="js中ownerDocument与documentElement的区别">
+                  <i class="fa fa-chevron-left"></i> js中ownerDocument与documentElement的区别
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/04/22/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.html" rel="next" title="nginx反向代理">
-                  nginx反向代理 <i class="fa fa-chevron-right"></i>
+                <a href="/2021/04/20/mysql%E8%A1%8C%E7%BA%A7%E9%94%81.html" rel="next" title="mysql行级锁">
+                  mysql行级锁 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
