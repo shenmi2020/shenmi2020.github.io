@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Composer 的版本约束可以分为 版本号约束 和 稳定性约束，两者结合共同影响着 Composer 的版本约束。 版本号从大到小排列，稳定性从 stable、RC、beta、alpha、dev 排列，先排版本号后稳定性。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="composer版本号">
+<meta property="og:url" content="http://example.com/2023/02/20/composer%E7%89%88%E6%9C%AC%E5%8F%B7.html">
+<meta property="og:site_name" content="神迷的小屋">
+<meta property="og:description" content="Composer 的版本约束可以分为 版本号约束 和 稳定性约束，两者结合共同影响着 Composer 的版本约束。 版本号从大到小排列，稳定性从 stable、RC、beta、alpha、dev 排列，先排版本号后稳定性。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-20T02:48:05.000Z">
+<meta property="article:modified_time" content="2023-02-20T02:52:25.213Z">
+<meta property="article:author" content="神迷">
+<meta property="article:tag" content="php">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/02/20/composer%E7%89%88%E6%9C%AC%E5%8F%B7.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/02/20/composer%E7%89%88%E6%9C%AC%E5%8F%B7.html","path":"2023/02/20/composer版本号.html","title":"composer版本号"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>composer版本号 | 神迷的小屋</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">神迷的小屋</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-hutu"><a href="/hutu/" rel="section"><i class="fa fa-sitemap fa-fw"></i>糊涂</a></li><li class="menu-item menu-item-biancheng"><a href="/biancheng/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>编程</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间轴</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="神迷"
+      src="https://i.imgtg.com/2022/08/03/AWTLX.png">
+  <p class="site-author-name" itemprop="name">神迷</p>
+  <div class="site-description" itemprop="description">穿过旷野的风 你慢些走</div>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/20/composer%E7%89%88%E6%9C%AC%E5%8F%B7.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
+      <meta itemprop="name" content="神迷">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="神迷的小屋">
+      <meta itemprop="description" content="穿过旷野的风 你慢些走">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="composer版本号 | 神迷的小屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          composer版本号
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      
+      
+
+      <time title="创建时间：2023-02-20 10:48:05" itemprop="dateCreated datePublished" datetime="2023-02-20T10:48:05+08:00">2023-02-20</time>
+    </span>
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/biancheng/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Composer 的版本约束可以分为 版本号约束 和 稳定性约束，两者结合共同影响着 Composer 的版本约束。</p>
+<p>版本号从大到小排列，稳定性从 stable、RC、beta、alpha、dev 排列，先排版本号后稳定性。</p>
+<span id="more"></span>
+<p>排列例如：</p>
+<p>v1.3 &gt; v1.2.5 &gt; v1.2.3 &gt; v1.2.3-beta &gt; v1.2.1 &gt; v1.2.0-rc &gt; v1.2.0-beta &gt; v1.2.0-dev &gt; v1.2.0</p>
+<p>运算符<br>Composer 可以通过运算符控制包版本。</p>
+<p>1.2.3</p>
+<p>匹配具体版本。</p>
+<p>&#x3D;1.0,&lt;&#x3D;1.2</p>
+<p>范围匹配。有效的运算符有：&gt;、&gt;&#x3D;、&lt;、&lt;&#x3D;、!&#x3D;。如果有多个范围，“,” 表示 逻辑AND，“|”表示 逻辑OR，AND 优先级高于 OR。</p>
+<p>通配符 *</p>
+<p>1.2.* 匹配 1.2.0（包含） 到 1.1（不包含）之间版本。</p>
+<p>波浪号 ～</p>
+<p>匹配 下一个重要版本。～ 1.2 匹配 1.2 到 2.0 之间版本。</p>
+<p>幂符号 ^</p>
+<p>匹配 最新而不产生兼容性问题的版本。</p>
+<p>一横符号 -</p>
+<p>匹配区间。5.2 - 5.4 匹配 5.2（包括）到 5.4（包括） 版本。</p>
+<p>三段式版本号<br>大版本.小版本.补丁版本</p>
+<p>如果你到软件或者库有一些 BUG 被修复了，补丁版本号 +1；<br>如果你增加了新功能，或者代码库增加了一个新方法，用户升级代码库后不会产生兼容问题，小版本号 +1；<br>如果软件完全重构，或者代码库完全重构以至于用户升级之后会产生兼容问题，大版本号 +1。<br>幂符号 ^ 对比 波浪号 ~<br>~ 只能改变最末尾的版本号，例如： <del>1.2.3 匹配 1.2.3（包含） 到 1.3.0 。<br>^ 参考上面 三段式版本号 ，匹配到不产生兼容性问题的版本。也就是说除 大版本号 之外，小版本号 和 补丁版本号 都可以改变。<br>当 版本号 只写到 小版本号 时，</del> 和 ^ 匹配相同。例如 ~1.2 和 ^1.2 均匹配 1.2.0（包含） 到 2.0.0。<br>大版本号以 0 开头</p>
+<p>当 大版本号 以 0 开头，^0.3.0 匹配的是 &gt;&#x3D;0.3.0,&lt;0.4.0。</p>
+<p>原因</p>
+<p>semantic versioning 规定：以 0 开头的 大版本号 表示一个 非稳定版本（unstable），处于非稳定状态下，小版本号不允许向下兼容。根据 ^ 匹配到不产生兼容性问题的版本的规则，无法改变小版本，因为改变小版本会导入兼容性问题。</p>
+<p>⚠️ 所以 ~0.1 匹配 &gt;&#x3D;0.1,&lt;1.0 比较危险。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+
+<span style="margin-top:30px; color:var(--blockquote-color); font-size:0.85em">
+    
+</span>
+
+
+
+
+
+<div class="donations">
+    
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/php/" rel="tag"># php</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/01/31/php%E9%98%BF%E6%8B%89%E4%BC%AF%E6%95%B0%E5%AD%97%E8%BD%AC%E4%B8%AD%E6%96%87%E4%BA%BA%E6%B0%91%E5%B8%81.html" rel="prev" title="php阿拉伯数字转中文人民币">
+                  <i class="fa fa-chevron-left"></i> php阿拉伯数字转中文人民币
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">神迷</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
