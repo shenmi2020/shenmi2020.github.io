@@ -20,25 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="穿过旷野的风 你慢些走">
-<meta property="og:type" content="website">
-<meta property="og:title" content="神迷的小屋">
-<meta property="og:url" content="http://example.com/%E7%B3%8A%E6%B6%82/index.html">
+    <meta name="description" content="使用tp6框架的queue队列时，如果执行时间超过60s，进程会自动kill掉。设置参数timeout&#x3D;0 解决php think queue:work –queue queuename –sleep 0 –timeout 2048 部分参数记录–memory 128  &#x2F;&#x2F;该进程允许使用的内存上限，以 M 为单位–sleep 3  &#x2F;&#x2F;如果队列中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="thinkphp队列超时配置">
+<meta property="og:url" content="http://example.com/2023/06/25/thinkphp%E9%98%9F%E5%88%97%E8%B6%85%E6%97%B6%E9%85%8D%E7%BD%AE.html">
 <meta property="og:site_name" content="神迷的小屋">
-<meta property="og:description" content="穿过旷野的风 你慢些走">
+<meta property="og:description" content="使用tp6框架的queue队列时，如果执行时间超过60s，进程会自动kill掉。设置参数timeout&#x3D;0 解决php think queue:work –queue queuename –sleep 0 –timeout 2048 部分参数记录–memory 128  &#x2F;&#x2F;该进程允许使用的内存上限，以 M 为单位–sleep 3  &#x2F;&#x2F;如果队列中">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-25T08:09:21.000Z">
+<meta property="article:modified_time" content="2023-06-25T08:13:42.004Z">
 <meta property="article:author" content="神迷">
+<meta property="article:tag" content="thinkphp">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/%E7%B3%8A%E6%B6%82/">
+<link rel="canonical" href="http://example.com/2023/06/25/thinkphp%E9%98%9F%E5%88%97%E8%B6%85%E6%97%B6%E9%85%8D%E7%BD%AE.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"糊涂/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/06/25/thinkphp%E9%98%9F%E5%88%97%E8%B6%85%E6%97%B6%E9%85%8D%E7%BD%AE.html","path":"2023/06/25/thinkphp队列超时配置.html","title":"thinkphp队列超时配置"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>分类: 糊涂 | 神迷的小屋</title>
+<title>thinkphp队列超时配置 | 神迷的小屋</title>
   
 
 
@@ -146,50 +149,109 @@
 </noscript>
 
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">糊涂
-          
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/25/thinkphp%E9%98%9F%E5%88%97%E8%B6%85%E6%97%B6%E9%85%8D%E7%BD%AE.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
+      <meta itemprop="name" content="神迷">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="神迷的小屋">
+      <meta itemprop="description" content="穿过旷野的风 你慢些走">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="thinkphp队列超时配置 | 神迷的小屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          thinkphp队列超时配置
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+      
+
+      <time title="创建时间：2023-06-25 16:09:21" itemprop="dateCreated datePublished" datetime="2023-06-25T16:09:21+08:00">2023-06-25</time>
+    </span>
+
+  
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>使用tp6框架的queue队列时，如果执行时间超过60s，进程会自动kill掉。<br>设置参数timeout&#x3D;0 解决<br>php think queue:work –queue queuename –sleep 0 –timeout 2048</p>
+<p>部分参数记录<br>–memory 128  &#x2F;&#x2F;该进程允许使用的内存上限，以 M 为单位<br>–sleep 3  &#x2F;&#x2F;如果队列中无任务，则sleep多少秒后重新检查(work+daemon模式)或者退出(listen或非daemon模式)<br>–timeout 60 &#x2F;&#x2F;创建的work子进程的允许执行的最长时间，以秒为单位<br>–delay 0 &#x2F;&#x2F;如果本次任务执行抛出异常且任务未被删除时，设置其下次执行前延迟多少秒,默认为0</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-05-12T11:53:48+08:00"
-              content="2022-05-12">
-          05-12
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/05/12/%E9%94%99%E8%AF%AF.html" itemprop="url">
-            <span itemprop="name">错误</span>
-          </a>
-      </div>
+    <footer class="post-footer">
 
-      
-    </header>
+
+<span style="margin-top:30px; color:var(--blockquote-color); font-size:0.85em">
+    
+</span>
+
+
+
+
+
+<div class="donations">
+    
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/thinkphp/" rel="tag"># thinkphp</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/06/13/git%E5%A5%87%E5%B9%BB%E4%B9%8B%E6%97%85%E8%BD%AC.html" rel="prev" title="git奇幻之旅">
+                  <i class="fa fa-chevron-left"></i> git奇幻之旅
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
+
 
 </div>
   </main>
