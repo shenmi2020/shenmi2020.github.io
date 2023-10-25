@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="https://unpkg.com/hexo-theme-next@8.11.0/source/js/config.js"></script>
+
+    <meta name="description" content="Socket是使用unix domain socket连接套接字&#x2F;dev&#x2F;shm&#x2F;PHP-cgi.sock（很多教程使用路径&#x2F;tmp，而路径&#x2F;dev&#x2F;shm是个tmpfs，速度比磁盘快得多）,在服务器压力不大的情况下，tcp和socket差别不大，但在压力比较满的时候，用套接字方式，效果确实比较好。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php-fpm配置记录">
+<meta property="og:url" content="http://example.com/2023/10/25/php-fpm%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95.html">
+<meta property="og:site_name" content="神迷的小屋">
+<meta property="og:description" content="Socket是使用unix domain socket连接套接字&#x2F;dev&#x2F;shm&#x2F;PHP-cgi.sock（很多教程使用路径&#x2F;tmp，而路径&#x2F;dev&#x2F;shm是个tmpfs，速度比磁盘快得多）,在服务器压力不大的情况下，tcp和socket差别不大，但在压力比较满的时候，用套接字方式，效果确实比较好。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-25T08:48:07.000Z">
+<meta property="article:modified_time" content="2023-10-25T08:50:31.998Z">
+<meta property="article:author" content="神迷">
+<meta property="article:tag" content="php">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/10/25/php-fpm%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/10/25/php-fpm%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95.html","path":"2023/10/25/php-fpm配置记录.html","title":"php-fpm配置记录"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>php-fpm配置记录 | 神迷的小屋</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner">
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-hutu"><a href="/hutu/" rel="section"><i class="fa fa-sitemap fa-fw"></i>糊涂</a></li><li class="menu-item menu-item-biancheng"><a href="/biancheng/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>编程</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间轴</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="神迷"
+      src="https://i.imgtg.com/2022/08/03/AWTLX.png">
+  <p class="site-author-name" itemprop="name">神迷</p>
+  <div class="site-description" itemprop="description">穿过旷野的风 你慢些走</div>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/25/php-fpm%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
+      <meta itemprop="name" content="神迷">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="神迷的小屋">
+      <meta itemprop="description" content="穿过旷野的风 你慢些走">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="php-fpm配置记录 | 神迷的小屋">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          php-fpm配置记录
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      
+      
+
+      <time title="创建时间：2023-10-25 16:48:07" itemprop="dateCreated datePublished" datetime="2023-10-25T16:48:07+08:00">2023-10-25</time>
+    </span>
+
+  
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Socket是使用unix domain socket连接套接字&#x2F;dev&#x2F;shm&#x2F;PHP-cgi.sock（很多教程使用路径&#x2F;tmp，而路径&#x2F;dev&#x2F;shm是个tmpfs，速度比磁盘快得多）,在服务器压力不大的情况下，tcp和socket差别不大，但在压力比较满的时候，用套接字方式，效果确实比较好。</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">[www] #进程池的名字；</span><br><span class="line">user  = www</span><br><span class="line">group = www #以什么用户什么组的权限来运行[www]这个进程池,用户，必须要设置,用户组，如果没有设置，则默认用户的组被使用;</span><br><span class="line">listen.backlog = 65535 #子进程未accept处理的客户端请求队列大小，-1 on FreeBSD and OpenBSD，其他平台默认65535，高并发时重要，合理设置会及时处理排队的请求；太大会积压太多，处理完后nginx在前面都等超时断开这个和fpm的socket连接了，就杯具了。不要用-1，建议1024以上，最好是2的幂值（注意：不同版本的默认值是不同的，php5多是128，php7多是511）。</span><br><span class="line">#1：一个池共用一个backlog队列，所有的池进程都去这个队列里accept连接； </span><br><span class="line">#2：最大数量受限于系统配置cat /proc/sys/net/core/somaxconn，系统配置修改：vim /etc/sysctl.conf，增加net.core.somaxconn =1024则最大为1024，然后php最大的backlog可以到1024。</span><br><span class="line">listen = 127.0.0.1:9000 #进程池[www]的监听端口,可用格式为:&#x27;ip:port&#x27;，&#x27;port&#x27;，&#x27;/path/to/unix/socket&#x27;。每个进程池都需要设置。如果nginx和php在不同的机器上，只能用机器真实ip+端口的格式，如果在同一台机器上，还可以选择unix soxket方式，这种理论上速度会提升31%，但高并发下不够稳定。</span><br><span class="line">listen.owner = www</span><br><span class="line">listen.group = www</span><br><span class="line">listen.mode = 0666 #unix socket设置选项，如果使用tcp方式访问，这里注释即可。</span><br><span class="line">listen.acl_users = www,php #当系统支持 POSIX ACL（Access Control Lists）时，可以设置使用此选项。 当设置了的时候，将会忽略 listen.owner 和 listen.group。值是逗号分割的用户名列表。 PHP 5.6.5 起可用。</span><br><span class="line">listen.acl_groups=web #参见 listen.acl_users。 值是逗号分割的用户组名称列表。 PHP 5.6.5 起可用。</span><br><span class="line">listen.allowed_clients = 127.0.0.1 #允许访问FastCGI进程的IP白名单，设置any为不限制IP，如果要设置其他主机的nginx也能访问这台FPM进程，listen处要设置成本地可被访问的IP。每个地址是用逗号分隔。如果没有设置或者为空，则允许任何服务器请求连接。</span><br><span class="line">process.priority = -19 #该池进程的权限，同样要master进程是root用户才有效，和全局那个一样，不设置的话会继承master进程的优先级。</span><br><span class="line">pm = dynamic #可选static,dynamic,ondemand,也就是说php-fpm有三种进程管理模式，默认dynamic。</span><br><span class="line">#1：static,固定启动若干（即pm.max_children）php进程，保持不变。</span><br><span class="line">#有效配置：pm.max_children</span><br><span class="line">#2：ondemand，这种模式刚启动时不会启动任何php进程，只有php-fpm接收到请求时才会根据需求启动php进程，最大为pm.max_children个，另外若php进程空闲时间达到pm.process_idle_timeout（单位s）,就会kill掉该进程。</span><br><span class="line">#有效配置：pm.max_children，pm.process_idle_timeout</span><br><span class="line">#3：dynamic，这种是最常用的，根据相关配置动态调整php进程个数;</span><br><span class="line">#有效配置如下：</span><br><span class="line">#pm.max_children ： 最大php进程数；</span><br><span class="line">#pm.min_spare_servers：最小的空闲php进程数,少与该值会启动php进程（这里的空闲并不是指完全空闲的php进程，可以直接理解为启动的php进程就好了，把空闲二字去掉更贴切）；</span><br><span class="line">#pm.max_spare_servers：最大的空闲php进程数，多余的会被kill；</span><br><span class="line">#pm.start_servers ： php-fpm启动时的php进程数，它的值需要在min_spare_servers和max_spare_servers之间，默认值：min_spare_servers(max_spare_servers - min_spare_servers) / 2；</span><br><span class="line">#pm.max_requests ，默认为0（此时等于PHP_FCGI_MAX_REQUESTS）。为了便于描述，此处假设它的值是500，那么这个参数的作用是一个php进程(即fpm的一个子进程)处理500个请求后会被kill,然后再启动一个php进程，这样可以防止因为内存泄漏导致的php进程占用内存过高的问题。</span><br><span class="line">access.log = var/log/php-fpm/$pool-access.log #访问文件日志;</span><br><span class="line">access.format = &quot;%R - %u %t “%m %r%Q%q” %s %f %&#123;mili&#125;d %&#123;kilo&#125;M %C%%&quot; #设定访问日志的格式。</span><br><span class="line">slowlog = /var/log/php-fpm/$pool-slow.log #慢请求日志；</span><br><span class="line">request_slowlog_timeout   #默认为0（不启用），此处假设它的值是10，则超过10s未响应的请求就是慢请求，会被记录到慢请求日志中；</span><br><span class="line">request_terminate_timeout #默认为0（不启用），此处假设它的值是20，则若某个请求超过20s未响应，相应的php进程会被kill掉，和php.ini中的max_execution_time效果类似。</span><br><span class="line">php_value ,php_flag, php_admin_value , php_admin_flag #设置php.ini中的配置，后二者相比前两者，不能被 PHP 代码中的 ini_set() 及相似函数覆盖。</span><br><span class="line"></span><br><span class="line">#最重要的就是pm相关的几个配置了，还有一些配置采用默认就好，详情见官网。</span><br><span class="line"></span><br><span class="line">【全局配置】</span><br><span class="line">pid = run/php-fpm.pid #pid设置。</span><br><span class="line">error_log = log/php-fpm.log #错误日志。</span><br><span class="line">log_level = notice #错误级别。上面的php-fpm.log纪录的错误等级。可用级别为：alert（必须立即处理），error（错误情况），warning（警告情况），notice（一般重要信息），debug（调试信息）。默认：notice。</span><br><span class="line">syslog.facility = daemon #把日志写进系统log，linux还不够熟悉，暂时不用理会。</span><br><span class="line">syslog.ident = php-fpm #系统日志标示（前缀），如果跑了多个fpm进程池，需要用这个来区分日志是谁的。</span><br><span class="line">emergency_restart_threshold = 5</span><br><span class="line">emergency_restart_interval = 60 #表示在60s内出现SIGSEGV或者SIGBUS错误的php-cgi进程数如果超过 emergency_restart_threshold个，php-fpm就会优雅重启。这两个选项一般保持默认值。0 表示‘关闭该功能’。默认值: 0 (关闭)。</span><br><span class="line">process_control_timeout = 0 #设置子进程接受主进程复用信号的超时时间。可用单位：s(秒)，m(分)，h(小时)，或者 d(天) 默认单位: s(秒)。默认值: 0。</span><br><span class="line">process.max = 128 #当动态管理子进程时，fpm最多能fork多少个进程，默认0表示无限制，这是所有进程池能启动子进程的总和，谨慎使用。</span><br><span class="line">process.priority = -19 #设置子进程的优先级，在master进程以root用户启动时有效；如果没有设置，子进程会继承master进程的优先级，值范围-19(最高)到20(最低)，默认不设置。</span><br><span class="line">rlimit_files = 1024 #设置master进程最多能打开的文件，默认为系统的值。</span><br><span class="line">rlimit_core = 0 #master进程核心rlimit限制值；可选unlimited或&gt;=0的整数，默认为系统的值。</span><br><span class="line">events.mechanism = epoll #事件处理机制，默认自动检测，可选值：select（any POSIX os）， poll(any POSIX os)， epoll(linux&gt;=2.5.44)， kqueue（FreeBSD &gt;= 4.1,OpenBSD &gt;= 2.9, NetBSD &gt;= 2.0）， /dev/poll（Solaris &gt;= 7），port（Solaris &gt;= 10）。linux&gt;=2.5.44会默认epoll,效果最好的IO方式。</span><br><span class="line">systemd_interval = 10s #当fpm被设置为系统服务时，多久向服务器报告一次状态，单位有s,m,h。</span><br><span class="line">daemonize = yes #作为守护进程运行php-fpm。默认值为yes。</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+
+<span style="margin-top:30px; color:var(--blockquote-color); font-size:0.85em">
+    
+</span>
+
+
+
+
+
+<div class="donations">
+    
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/php/" rel="tag"># php</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/09/11/%E9%BB%84%E9%87%91%E6%97%B6%E4%BB%A3.html" rel="prev" title="黄金时代">
+                  <i class="fa fa-chevron-left"></i> 黄金时代
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">神迷</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/hexo-theme-next@8.11.0/source/js/comments.js"></script><script src="https://unpkg.com/hexo-theme-next@8.11.0/source/js/utils.js"></script><script src="https://unpkg.com/hexo-theme-next@8.11.0/source/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
