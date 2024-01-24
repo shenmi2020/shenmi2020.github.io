@@ -28,7 +28,7 @@
 <meta property="og:description" content="发现nginx错误日志里写满了connect() failed (111: Connection refused) while connecting to upstream，但是请求正常，php-fpm也正常，查询后找到原因：::1指的是本地ipv6地址proxy_pass中如果是localhost则会转发给ipv4和ipv6，所以会出现上面的错误日志；改成127.0.0.1问题解决。.&amp;#x2F">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-26T02:39:45.000Z">
-<meta property="article:modified_time" content="2023-10-26T02:45:42.548Z">
+<meta property="article:modified_time" content="2024-01-04T08:30:17.626Z">
 <meta property="article:author" content="神迷">
 <meta property="article:tag" content="nginx">
 <meta name="twitter:card" content="summary">
@@ -165,12 +165,20 @@
         <i class="far fa-calendar"></i>
       </span>
       
-      
 
       <time title="创建时间：2023-10-26 10:39:45" itemprop="dateCreated datePublished" datetime="2023-10-26T10:39:45+08:00">2023-10-26</time>
     </span>
 
   
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/biancheng/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+        </span>
+    </span>
 
   
 </div>
@@ -218,6 +226,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2024/01/02/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95.html" rel="next" title="docker常用命令记录">
+                  docker常用命令记录 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -238,7 +249,7 @@
 
 <div class="copyright">
   &copy; 2017 – 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
