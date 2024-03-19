@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="https://unpkg.com/hexo-theme-next@8.11.0/source/js/config.js"></script>
 
-    <meta name="description" content="因工作需要使用两种php版本，考虑使用docker来部署环境，几年前简单学习过docker现在已经忘干净了，再来学习下 先安装好docker，这里不做记录1.去https:&#x2F;&#x2F;hub.docker.com&#x2F;_&#x2F;php&#x2F;tags查询自己需要的版本，复制命令docker pull php:8.2-rc-cli-busterps: 下载慢可以配置docker镜像，如阿里云和163等">
+    <meta name="description" content="先安装好docker，这里不做记录1.去https:&#x2F;&#x2F;hub.docker.com&#x2F;_&#x2F;php&#x2F;tags查询自己需要的版本，复制命令docker pull php:8.2-rc-cli-busterps: 下载慢可以配置docker镜像，如阿里云和163等">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker安装php镜像和扩展">
 <meta property="og:url" content="http://example.com/2022/08/10/docker%E5%AE%89%E8%A3%85php%E9%95%9C%E5%83%8F.html">
 <meta property="og:site_name" content="神迷的小屋">
-<meta property="og:description" content="因工作需要使用两种php版本，考虑使用docker来部署环境，几年前简单学习过docker现在已经忘干净了，再来学习下 先安装好docker，这里不做记录1.去https:&#x2F;&#x2F;hub.docker.com&#x2F;_&#x2F;php&#x2F;tags查询自己需要的版本，复制命令docker pull php:8.2-rc-cli-busterps: 下载慢可以配置docker镜像，如阿里云和163等">
+<meta property="og:description" content="先安装好docker，这里不做记录1.去https:&#x2F;&#x2F;hub.docker.com&#x2F;_&#x2F;php&#x2F;tags查询自己需要的版本，复制命令docker pull php:8.2-rc-cli-busterps: 下载慢可以配置docker镜像，如阿里云和163等">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-10T03:48:01.000Z">
-<meta property="article:modified_time" content="2022-09-30T02:33:59.557Z">
+<meta property="article:modified_time" content="2024-03-14T09:58:26.220Z">
 <meta property="article:author" content="神迷">
 <meta property="article:tag" content="php">
 <meta property="article:tag" content="docker">
@@ -191,8 +191,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>因工作需要使用两种php版本，考虑使用docker来部署环境，几年前简单学习过docker现在已经忘干净了，再来学习下</p>
-<p>先安装好docker，这里不做记录<br>1.去<a target="_blank" rel="noopener" href="https://hub.docker.com/_/php/tags%E6%9F%A5%E8%AF%A2%E8%87%AA%E5%B7%B1%E9%9C%80%E8%A6%81%E7%9A%84%E7%89%88%E6%9C%AC%EF%BC%8C%E5%A4%8D%E5%88%B6%E5%91%BD%E4%BB%A4">https://hub.docker.com/_/php/tags查询自己需要的版本，复制命令</a><br>docker pull php:8.2-rc-cli-buster<br>ps: 下载慢可以配置docker镜像，如阿里云和163等</p>
+        <p>先安装好docker，这里不做记录<br>1.去<a target="_blank" rel="noopener" href="https://hub.docker.com/_/php/tags%E6%9F%A5%E8%AF%A2%E8%87%AA%E5%B7%B1%E9%9C%80%E8%A6%81%E7%9A%84%E7%89%88%E6%9C%AC%EF%BC%8C%E5%A4%8D%E5%88%B6%E5%91%BD%E4%BB%A4">https://hub.docker.com/_/php/tags查询自己需要的版本，复制命令</a><br>docker pull php:8.2-rc-cli-buster<br>ps: 下载慢可以配置docker镜像，如阿里云和163等</p>
 <span id="more"></span>
 
 <p>2.docker run -t -i php:8.2 &#x2F;bin&#x2F;bash<br>这里最好配置好端口映射-p: 指定端口映射，格式为：主机(宿主)端口:容器端口<br>目录映射-v &#x2F;data:&#x2F;data<br>也可以后期修改docker配置文件，不过有点麻烦。。。</p>
@@ -205,16 +204,53 @@
 <p>docker容器添加新的端口映射方法<br>&#x2F;var&#x2F;lib&#x2F;docker&#x2F;containers&#x2F;&lt;容器Id&gt;&#x2F;hostconfig.json</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;PortBindings&quot;:&#123;</span><br><span class="line">			&quot;22/tcp&quot;:[&#123;&quot;HostIp&quot;:&quot;&quot;,&quot;HostPort&quot;:&quot;10112&quot;&#125;],</span><br><span class="line">			&quot;5901/tcp&quot;:[&#123;&quot;HostIp&quot;:&quot;&quot;,&quot;HostPort&quot;:&quot;10113&quot;&#125;],</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/var/lib/docker/containers/&lt;容器Id&gt;/config.v2.json</span><br></pre></td></tr></table></figure>
 <p>{<br>    “ExposedPorts”:{<br>        “22&#x2F;tcp”:{},<br>        “5901&#x2F;tcp”:{}<br>    }<br>}</p>
-<pre><code>
-docker安装php扩展
+<p>&#96;&#96;&#96;</p>
+<p>docker安装php扩展</p>
+<p>在php容器中创建&#x2F;usr&#x2F;src&#x2F;php目录<br>docker-php-source extract</p>
+<p>docker-php-ext-configure<br>docker-php-ext-enable  启用扩展<br>docker-php-ext-install 安装扩展</p>
+<p>pecl install redis<br>docker-php-ext-enable redis</p>
+<hr>
+<p>checking for libpng… no<br>configure: error: Package requirements (libpng) were not met:</p>
+<p>No package ‘libpng’ found</p>
+<p>apt-get install libpng-dev</p>
+<p>configure: error: Package requirements (zlib &gt;&#x3D; 1.2.0.4) were not met:</p>
+<p>No package ‘zlib’ found </p>
+<p>apt-get install zlib1g-dev</p>
+<hr>
+<p>kill -USR2 1  容器内重启php-fpm</p>
+<p>fastcgi_param SCRIPT_FILENAME &#x2F;var&#x2F;www&#x2F;html$fastcgi_script_name;  &#x2F;&#x2F; nginx修改配置</p>
+<p>&#x2F;&#x2F; 安装composer<br>curl -sS <a target="_blank" rel="noopener" href="https://getcomposer.org/installer">https://getcomposer.org/installer</a> | php<br>composer config -g repo.packagist composer <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/composer/">https://mirrors.aliyun.com/composer/</a></p>
+<p>docker run -itd –name php7.4-fpm-c2  -v &#x2F;var&#x2F;www&#x2F;wwwdata:&#x2F;var&#x2F;www&#x2F;html -v &#x2F;var&#x2F;docker&#x2F;php&#x2F;etc:&#x2F;usr&#x2F;local&#x2F;etc -v &#x2F;var&#x2F;docker&#x2F;php&#x2F;supervisor&#x2F;conf.d:&#x2F;etc&#x2F;supervisor&#x2F;conf.d -v &#x2F;var&#x2F;docker&#x2F;php&#x2F;supervisor&#x2F;log:&#x2F;var&#x2F;www&#x2F;log -p 19001:9000 –privileged&#x3D;true –restart&#x3D;always weixiao&#x2F;php:7.4.33-fpm &#x2F;bin&#x2F;bash</p>
+<p>server {<br>        listen 8081;<br>        listen [::]:8081;</p>
+<pre><code>    server_name _;
 
-在php容器中创建/usr/src/php目录
-docker-php-source extract
+    root /var/www/wwwdata/cloud_school_php/public;
+    index index.html index.php;
 
-docker-php-ext-configure
-docker-php-ext-enable  启用扩展
-docker-php-ext-install 安装扩展
+    location / &#123;
+            #if (!-e $request_filename) &#123;
+            #       rewrite  ^(.*)$  /index.php?s=/$1  last;
+            #&#125;
+        if (!-e $request_filename) &#123;
+            rewrite  ^(.*)$  /index.php?s=$1  last;
+            break;
+        &#125;
+    &#125;
+
+    location ~ \.php$ &#123;
+            fastcgi_index index.php;
+            root /var/www/html/cloud_school_php/public;
+            #include snippets/fastcgi-php.conf;
+            fastcgi_split_path_info ^(.+\.php)(.*)$;
+            fastcgi_param PATH_INFO $fastcgi_path_info;   #使nginx支持pathinfo
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+           
+            include  fastcgi_params;
+           
+            fastcgi_pass 127.0.0.1:19000;
+    &#125;
 </code></pre>
+<p>}</p>
 
     </div>
 
