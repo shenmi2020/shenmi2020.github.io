@@ -133,7 +133,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/07/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85php7-4.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/01/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85php7-4.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.imgtg.com/2022/08/03/AWTLX.png">
@@ -151,7 +151,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/07/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85php7-4.html" class="post-title-link" itemprop="url">编译安装php7.4</a>
+          <a href="/2024/03/01/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85php7-4.html" class="post-title-link" itemprop="url">编译安装php7.4</a>
         </h2>
 
         <div class="post-meta-container">
@@ -161,12 +161,20 @@
         <i class="far fa-calendar"></i>
       </span>
       
-      
 
-      <time title="创建时间：2024-03-07 14:35:36" itemprop="dateCreated datePublished" datetime="2024-03-07T14:35:36+08:00">2024-03-07</time>
+      <time title="创建时间：2024-03-01 14:35:36" itemprop="dateCreated datePublished" datetime="2024-03-01T14:35:36+08:00">2024-03-01</time>
     </span>
 
   
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/biancheng/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+        </span>
+    </span>
 
   
 </div>
@@ -178,7 +186,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">./configure \</span><br><span class="line">--prefix=/usr/local/php \</span><br><span class="line">--with-config-file-path=/usr/local/php/etc \</span><br><span class="line">--with-fpm-user=www \</span><br><span class="line">--with-fpm-group=www \</span><br><span class="line">--with-curl \</span><br><span class="line">--with-freetype-dir \</span><br><span class="line">--enable-gd \</span><br><span class="line">--with-gettext \</span><br><span class="line">--with-iconv-dir \</span><br><span class="line">--with-kerberos \</span><br><span class="line">--with-libdir=lib64 \</span><br><span class="line">--with-libxml-dir \</span><br><span class="line">--with-mysqli \</span><br><span class="line">--with-openssl \</span><br><span class="line">--with-pcre-regex \</span><br><span class="line">--with-pdo-mysql \</span><br><span class="line">--with-pdo-sqlite \</span><br><span class="line">--with-pear \</span><br><span class="line">--with-png-dir \</span><br><span class="line">--with-jpeg-dir \</span><br><span class="line">--with-xmlrpc \</span><br><span class="line">--with-xsl \</span><br><span class="line">--with-zlib \</span><br><span class="line">--with-bz2 \</span><br><span class="line">--with-mhash \</span><br><span class="line">--enable-fpm \</span><br><span class="line">--enable-bcmath \</span><br><span class="line">--enable-libxml \</span><br><span class="line">--enable-inline-optimization \</span><br><span class="line">--enable-mbregex \</span><br><span class="line">--enable-mbstring \</span><br><span class="line">--enable-opcache \</span><br><span class="line">--enable-pcntl \</span><br><span class="line">--enable-shmop \</span><br><span class="line">--enable-soap \</span><br><span class="line">--enable-sockets \</span><br><span class="line">--enable-sysvsem \</span><br><span class="line">--enable-sysvshm \</span><br><span class="line">--enable-xml \</span><br><span class="line">--enable-zip \</span><br><span class="line">--enable-fpm \</span><br><span class="line">--enable-fileinfo</span><br></pre></td></tr></table></figure>
+          <p>编译安装命令记录</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/03/01/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85php7-4.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -232,7 +248,6 @@
         <i class="far fa-calendar"></i>
       </span>
       
-      
 
       <time title="创建时间：2024-01-17 11:12:50" itemprop="dateCreated datePublished" datetime="2024-01-17T11:12:50+08:00">2024-01-17</time>
     </span>
@@ -258,9 +273,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-<p>记录一下啊使用php反射特性来记录操作日志</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="variable">$re</span> = <span class="keyword">new</span> <span class="title class_">ReflectionClass</span>(CLASS);</span><br><span class="line"><span class="variable">$doc</span> = <span class="variable">$re</span>-&gt;<span class="title function_ invoke__">getMethod</span>(<span class="variable">$request</span>-&gt;<span class="title function_ invoke__">action</span>())-&gt;<span class="title function_ invoke__">getDocComment</span>();</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable">$doc</span>)) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Exception</span>(<span class="string">&#x27;请给控制器方法注释&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/\s(\w+)/u&#x27;</span>, <span class="variable">$re</span>-&gt;<span class="title function_ invoke__">getMethod</span>(<span class="variable">$request</span>-&gt;<span class="title function_ invoke__">action</span>())-&gt;<span class="title function_ invoke__">getDocComment</span>(), <span class="variable">$values</span>);</span><br><span class="line"><span class="variable">$notes</span> = <span class="variable">$values</span>[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 测试操作</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;test&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <p>记录一下啊使用php反射特性来记录操作日志</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/01/17/%E4%BD%BF%E7%94%A8ReflectionClass%E8%AE%B0%E5%BD%95%E6%97%A5%E5%BF%97%E6%96%B9%E6%B3%95.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
